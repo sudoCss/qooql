@@ -1,0 +1,451 @@
+{
+    "dataset_evaluated": "beir/nfcorpus",
+    "timestamp": "2026-06-15 22:41:23",
+    "total_queries_evaluated": 323,
+    "model_performance_metrics": {
+        "tfidf": {
+            "MAP": 0.08060381605146087,
+            "MRR": 0.36934063077457724,
+            "Precision@10": 0.19349845201238391,
+            "Recall@10": 0.09047339885563305,
+            "nDCG@10": 0.22817513742096707
+        },
+        "bm25": {
+            "MAP": 0.1281668561945995,
+            "MRR": 0.5129172233591458,
+            "Precision@10": 0.2210526315789474,
+            "Recall@10": 0.13609091456121875,
+            "nDCG@10": 0.30071473976172947
+        },
+        "bert": {
+            "MAP": 0.13990237157592053,
+            "MRR": 0.5147203254777384,
+            "Precision@10": 0.2390092879256966,
+            "Recall@10": 0.15308646451372884,
+            "nDCG@10": 0.3124194132009743
+        },
+        "hybrid": {
+            "MAP": 0.14247489341008102,
+            "MRR": 0.5272152777788394,
+            "Precision@10": 0.23777089783281738,
+            "Recall@10": 0.15134358501912515,
+            "nDCG@10": 0.31838342331871894
+        },
+        "hybrid_serial": {
+            "MAP": 0.13805632843050564,
+            "MRR": 0.5390842288203441,
+            "Precision@10": 0.2359133126934985,
+            "Recall@10": 0.14679917049076607,
+            "nDCG@10": 0.32112463792050244
+        }
+    },
+    "search_efficiency_comparison": {
+        "status": "completed",
+        "average_faiss_time_seconds": 0.06827349662780761,
+        "average_manual_time_seconds": 0.0536848783493042,
+        "speedup_factor": 0.7863209151563872,
+        "average_precision_match_at_5": 1.0,
+        "detailed_queries": [
+            {
+                "query_text": "Do Cholesterol Statin Drugs Cause Breast...",
+                "faiss_time": 0.013040781021118164,
+                "manual_time": 0.025182723999023438,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.931074830429457,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Exploiting Autophagy to Live Longer...",
+                "faiss_time": 0.061479806900024414,
+                "manual_time": 0.10454845428466797,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.7005332247493843,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How to Reduce Exposure to Alkylphenols T...",
+                "faiss_time": 0.15024209022521973,
+                "manual_time": 0.020463228225708008,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.13620170083518338,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What’s Driving America’s Obesity Problem...",
+                "faiss_time": 0.07308506965637207,
+                "manual_time": 0.05475473403930664,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.749191788374149,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Who Should be Careful About Curcumin?...",
+                "faiss_time": 0.030165910720825195,
+                "manual_time": 0.1293025016784668,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.286378186129223,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Foods for Glaucoma...",
+                "faiss_time": 0.08508491516113281,
+                "manual_time": 0.03483462333679199,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.40941009661727457,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is Actually in Chicken Nuggets?...",
+                "faiss_time": 0.09646129608154297,
+                "manual_time": 0.06559062004089355,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.6799682640117848,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What Do Meat Purge and Cola Have in Comm...",
+                "faiss_time": 0.031580448150634766,
+                "manual_time": 0.07487654685974121,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.3709779703755154,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Chronic Headaches and Pork Parasites...",
+                "faiss_time": 0.1527562141418457,
+                "manual_time": 0.03347158432006836,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.21911766083039647,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Stopping Heart Disease in Childhood...",
+                "faiss_time": 0.05982017517089844,
+                "manual_time": 0.10657191276550293,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.781537958741192,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Food Dyes and ADHD...",
+                "faiss_time": 0.033533334732055664,
+                "manual_time": 0.03622579574584961,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.0802920745970466,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How Citrus Might Help Keep Your Hands Wa...",
+                "faiss_time": 0.02114081382751465,
+                "manual_time": 0.03873634338378906,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.832301428877536,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Starving Tumors of Their Blood Supply...",
+                "faiss_time": 0.03237605094909668,
+                "manual_time": 0.04075312614440918,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.2587429581354248,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Are Dental X-Rays Safe?...",
+                "faiss_time": 0.028853654861450195,
+                "manual_time": 0.03773331642150879,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.3077482420406377,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How Should I Take Probiotics?...",
+                "faiss_time": 0.02926325798034668,
+                "manual_time": 0.04042673110961914,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.3814842877976845,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Breast Cancer & Alcohol: How Much is Saf...",
+                "faiss_time": 0.0325312614440918,
+                "manual_time": 0.04742622375488281,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.4578661155328847,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Diet and Cellulite...",
+                "faiss_time": 0.031119585037231445,
+                "manual_time": 0.048551321029663086,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.560153227351082,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Best Treatment for Constipation...",
+                "faiss_time": 0.020824193954467773,
+                "manual_time": 0.02989029884338379,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.4353640245926977,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Should We Avoid Titanium Dioxide?...",
+                "faiss_time": 0.02322697639465332,
+                "manual_time": 0.04574084281921387,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.9692982005933013,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Avoiding Cooked Meat Carcinogens...",
+                "faiss_time": 0.018103599548339844,
+                "manual_time": 0.048502206802368164,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.6791471316441027,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Plant-Based Diets for Psoriasis...",
+                "faiss_time": 0.02523350715637207,
+                "manual_time": 0.04786825180053711,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.8970114421232651,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Increasing Muscle Strength with Fenugree...",
+                "faiss_time": 0.02487945556640625,
+                "manual_time": 0.04169321060180664,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.6758088009812941,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How Chemically Contaminated Are We?...",
+                "faiss_time": 0.01853156089782715,
+                "manual_time": 0.0479280948638916,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.5862956244290918,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Treating an Enlarged Prostate With Diet...",
+                "faiss_time": 0.03840446472167969,
+                "manual_time": 0.03823423385620117,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.9955674199155699,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Optimal Phytosterol Dose and Source...",
+                "faiss_time": 0.030815839767456055,
+                "manual_time": 0.045511722564697266,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.4768937957926824,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Is Caffeinated Tea Really Dehydrating?...",
+                "faiss_time": 0.023912429809570312,
+                "manual_time": 0.03937101364135742,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.6464664592805296,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Mercury Testing Recommended Before Pregn...",
+                "faiss_time": 0.09009051322937012,
+                "manual_time": 0.03483247756958008,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.3866386850399744,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Stool Size and Breast Cancer Risk...",
+                "faiss_time": 0.02312612533569336,
+                "manual_time": 0.13829350471496582,
+                "precision_match_at_5": 1.0,
+                "speedup": 5.9799686591476116,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Vitamin D: Shedding some light on the ne...",
+                "faiss_time": 0.15185213088989258,
+                "manual_time": 0.0311734676361084,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.20528831207980983,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Breast Cancer and Diet...",
+                "faiss_time": 0.1565995216369629,
+                "manual_time": 0.030119657516479492,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.19233556527908457,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Can antioxidant-rich spices counteract t...",
+                "faiss_time": 0.15417265892028809,
+                "manual_time": 0.038826704025268555,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.251839102323215,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Dioxins Stored in Our Own Fat May Increa...",
+                "faiss_time": 0.15209078788757324,
+                "manual_time": 0.03430318832397461,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.22554415556931567,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Didn't another study show carnitine was ...",
+                "faiss_time": 0.0566709041595459,
+                "manual_time": 0.04968094825744629,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.8766570605187319,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Any update on the scary in vitro avocado...",
+                "faiss_time": 0.15505766868591309,
+                "manual_time": 0.028131723403930664,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.18142748851019205,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What do you think of Dr. Jenkins' take o...",
+                "faiss_time": 0.032799482345581055,
+                "manual_time": 0.1300661563873291,
+                "precision_match_at_5": 1.0,
+                "speedup": 3.965494181186442,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What about pepper plus turmeric in V8 ju...",
+                "faiss_time": 0.1529395580291748,
+                "manual_time": 0.026827335357666016,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.17541135663899607,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Is annatto food coloring safe?...",
+                "faiss_time": 0.029949188232421875,
+                "manual_time": 0.13635730743408203,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.552955037574831,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Fresh fruit versus frozen--which is bett...",
+                "faiss_time": 0.14911818504333496,
+                "manual_time": 0.02404165267944336,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.16122549152845886,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Are krill oil supplements better than fi...",
+                "faiss_time": 0.10737991333007812,
+                "manual_time": 0.05265331268310547,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.49034601584425735,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Is apple cider vinegar good for you?...",
+                "faiss_time": 0.05654716491699219,
+                "manual_time": 0.0965576171875,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.7075589435693326,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How can you believe in any scientific st...",
+                "faiss_time": 0.04542136192321777,
+                "manual_time": 0.03379058837890625,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.7439360456876506,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Is vitamin D3 (cholecalciferol) preferab...",
+                "faiss_time": 0.03795933723449707,
+                "manual_time": 0.04864144325256348,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.2814091814110657,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "accidents...",
+                "faiss_time": 0.044977664947509766,
+                "manual_time": 0.03804445266723633,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.8458521070765969,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "adenovirus 36...",
+                "faiss_time": 0.08526730537414551,
+                "manual_time": 0.021486759185791016,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.25199294256466753,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "African-American...",
+                "faiss_time": 0.03557395935058594,
+                "manual_time": 0.027270078659057617,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.7665741783282398,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "airport scanners...",
+                "faiss_time": 0.15147113800048828,
+                "manual_time": 0.03183865547180176,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.21019618583508048,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Alli...",
+                "faiss_time": 0.1450648307800293,
+                "manual_time": 0.021281957626342773,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.14670652777732124,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "alternative medicine...",
+                "faiss_time": 0.02605462074279785,
+                "manual_time": 0.13365817070007324,
+                "precision_match_at_5": 1.0,
+                "speedup": 5.129921944345312,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "American Dental Association...",
+                "faiss_time": 0.1535933017730713,
+                "manual_time": 0.025963544845581055,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.16904086666449347,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "amnesia...",
+                "faiss_time": 0.03343081474304199,
+                "manual_time": 0.12621355056762695,
+                "precision_match_at_5": 1.0,
+                "speedup": 3.7753656779751674,
+                "precision_match_at-5": 1.0
+            }
+        ]
+    }
+}

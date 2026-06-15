@@ -1,0 +1,451 @@
+{
+    "dataset_evaluated": "beir/scifact",
+    "timestamp": "2026-06-15 22:42:42",
+    "total_queries_evaluated": 300,
+    "model_performance_metrics": {
+        "tfidf": {
+            "MAP": 0.41318471265185064,
+            "MRR": 0.42572698677476106,
+            "Precision@10": 0.072,
+            "Recall@10": 0.6450555555555556,
+            "nDCG@10": 0.4663839315433097
+        },
+        "bm25": {
+            "MAP": 0.6043931712886429,
+            "MRR": 0.6123886310218429,
+            "Precision@10": 0.08366666666666665,
+            "Recall@10": 0.7565,
+            "nDCG@10": 0.639654326903578
+        },
+        "bert": {
+            "MAP": 0.5950353005231652,
+            "MRR": 0.6032932691505253,
+            "Precision@10": 0.08899999999999998,
+            "Recall@10": 0.7866666666666666,
+            "nDCG@10": 0.6401996495750767
+        },
+        "hybrid": {
+            "MAP": 0.6324506233907912,
+            "MRR": 0.6399608497826794,
+            "Precision@10": 0.08899999999999998,
+            "Recall@10": 0.7993888888888889,
+            "nDCG@10": 0.6713964118307981
+        },
+        "hybrid_serial": {
+            "MAP": 0.5931729332216987,
+            "MRR": 0.600528885602651,
+            "Precision@10": 0.088,
+            "Recall@10": 0.7745555555555556,
+            "nDCG@10": 0.6360227590045144
+        }
+    },
+    "search_efficiency_comparison": {
+        "status": "completed",
+        "average_faiss_time_seconds": 0.07661756992340088,
+        "average_manual_time_seconds": 0.052242250442504884,
+        "speedup_factor": 0.681857314121742,
+        "average_precision_match_at_5": 1.0,
+        "detailed_queries": [
+            {
+                "query_text": "0-dimensional biomaterials show inductiv...",
+                "faiss_time": 0.01385498046875,
+                "manual_time": 0.024679183959960938,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.78125,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "1,000 genomes project enables mapping of...",
+                "faiss_time": 0.030091524124145508,
+                "manual_time": 0.030252933502197266,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.0053639482462187,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "1/2000 in UK have abnormal PrP positivit...",
+                "faiss_time": 0.02685403823852539,
+                "manual_time": 0.03189206123352051,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.1876076495551964,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "5% of perinatal mortality is due to low ...",
+                "faiss_time": 0.046813011169433594,
+                "manual_time": 0.11282491683959961,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.4101187687167682,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "A deficiency of vitamin B12 increases bl...",
+                "faiss_time": 0.10484147071838379,
+                "manual_time": 0.05175161361694336,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.4936177760797931,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "A high microerythrocyte count raises vul...",
+                "faiss_time": 0.12325286865234375,
+                "manual_time": 0.03975629806518555,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.3225588053234293,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "A total of 1,000 people in the UK are as...",
+                "faiss_time": 0.16127610206604004,
+                "manual_time": 0.025449514389038086,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.15780090207423855,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "ADAR1 binds to Dicer to cleave pre-miRNA...",
+                "faiss_time": 0.04773092269897461,
+                "manual_time": 0.05191445350646973,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.0876482282540285,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "AIRE is expressed in some skin tumors....",
+                "faiss_time": 0.02170872688293457,
+                "manual_time": 0.09820723533630371,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.523859730047335,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "ALDH1 expression is associated with bett...",
+                "faiss_time": 0.06822824478149414,
+                "manual_time": 0.0580594539642334,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.8509592200440298,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "ALDH1 expression is associated with poor...",
+                "faiss_time": 0.15045428276062012,
+                "manual_time": 0.025925397872924805,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.17231412358113687,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "AMP-activated protein kinase (AMPK) acti...",
+                "faiss_time": 0.03195786476135254,
+                "manual_time": 0.03109598159790039,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.9730306398788431,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "APOE4 expression in iPSC-derived neurons...",
+                "faiss_time": 0.09549212455749512,
+                "manual_time": 0.038091182708740234,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.3988934468182851,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "APOE4 expression in iPSC-derived neurons...",
+                "faiss_time": 0.1634993553161621,
+                "manual_time": 0.02231621742248535,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.1364911646246679,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Activation of PPM1D suppresses p53 funct...",
+                "faiss_time": 0.0948789119720459,
+                "manual_time": 0.06475329399108887,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.6824835218406287,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Activator-inhibitor pairs are provided d...",
+                "faiss_time": 0.037870168685913086,
+                "manual_time": 0.0552518367767334,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.4589804770868615,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Active H. pylori urease has a polymeric ...",
+                "faiss_time": 0.15480494499206543,
+                "manual_time": 0.021837472915649414,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.1410644402655787,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Albendazole is used to treat lymphatic f...",
+                "faiss_time": 0.03239154815673828,
+                "manual_time": 0.03388047218322754,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.045966436037097,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Alizarin forms hydrogen bonds with resid...",
+                "faiss_time": 0.0445401668548584,
+                "manual_time": 0.1153419017791748,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.5896153949094023,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "All hematopoietic stem cells segregate t...",
+                "faiss_time": 0.09502959251403809,
+                "manual_time": 0.04474020004272461,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.4708028189862588,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Angiotensin converting enzyme inhibitors...",
+                "faiss_time": 0.0481722354888916,
+                "manual_time": 0.051558494567871094,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.0702948294720587,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Anthrax spores can be disposed of easily...",
+                "faiss_time": 0.14779877662658691,
+                "manual_time": 0.02545785903930664,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.1722467507537348,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Antibiotic induced alterations in the gu...",
+                "faiss_time": 0.14391851425170898,
+                "manual_time": 0.029240131378173828,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.20317143718586306,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Antiretroviral therapy reduces rates of ...",
+                "faiss_time": 0.13455724716186523,
+                "manual_time": 0.04173159599304199,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.3101400844121097,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Arginine 90 in p150n is important for in...",
+                "faiss_time": 0.05531954765319824,
+                "manual_time": 0.10781121253967285,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.9488809491998775,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Arterioles have a larger lumen diameter ...",
+                "faiss_time": 0.029676198959350586,
+                "manual_time": 0.13001084327697754,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.380980308666276,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Articles published in open access format...",
+                "faiss_time": 0.1763324737548828,
+                "manual_time": 0.02333664894104004,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.13234458999015675,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Articles published in open access format...",
+                "faiss_time": 0.02695441246032715,
+                "manual_time": 0.1328427791595459,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.928424218300827,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Aspirin inhibits the production of PGE2....",
+                "faiss_time": 0.0366058349609375,
+                "manual_time": 0.04317617416381836,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.1794888495206335,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Assembly of invadopodia is triggered by ...",
+                "faiss_time": 0.04112839698791504,
+                "manual_time": 0.04896712303161621,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.1905915770557376,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Asymptomatic visual impairment screening...",
+                "faiss_time": 0.028849363327026367,
+                "manual_time": 0.03733325004577637,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.2940753535036322,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Auditory entrainment is strengthened whe...",
+                "faiss_time": 0.028499603271484375,
+                "manual_time": 0.05804800987243652,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.0368006290991834,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Autologous transplantation of mesenchyma...",
+                "faiss_time": 0.03295254707336426,
+                "manual_time": 0.07674622535705566,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.3289922076794514,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Autologous transplantation of mesenchyma...",
+                "faiss_time": 0.03943514823913574,
+                "manual_time": 0.04693937301635742,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.1902928000096733,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Autologous transplantation of mesenchyma...",
+                "faiss_time": 0.15913677215576172,
+                "manual_time": 0.03411531448364258,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.21437731846320723,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Autophagy declines in aged organisms....",
+                "faiss_time": 0.030300378799438477,
+                "manual_time": 0.08280515670776367,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.732809291126691,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Bariatric surgery has a positive impact ...",
+                "faiss_time": 0.10866355895996094,
+                "manual_time": 0.040969133377075195,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.3770273472468449,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Basophils counteract disease development...",
+                "faiss_time": 0.03539156913757324,
+                "manual_time": 0.03776407241821289,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.0670358319354905,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Birth-weight is positively associated wi...",
+                "faiss_time": 0.02214360237121582,
+                "manual_time": 0.04439806938171387,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.005006621660906,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Blocking the interaction between TDP-43 ...",
+                "faiss_time": 0.09488725662231445,
+                "manual_time": 0.06487226486206055,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.6836773152824471,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Bone marrow cells contribute to adult ma...",
+                "faiss_time": 0.043787479400634766,
+                "manual_time": 0.055908918380737305,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.2768243147589542,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Breast cancer development is determined ...",
+                "faiss_time": 0.10387682914733887,
+                "manual_time": 0.056020498275756836,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.5392973460548875,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CCL19 is absent within dLNs....",
+                "faiss_time": 0.02944493293762207,
+                "manual_time": 0.04363656044006348,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.4819718058963085,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CHEK2 is not associated with breast canc...",
+                "faiss_time": 0.03240060806274414,
+                "manual_time": 0.04111766815185547,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.2690400153055967,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CR is associated with higher methylation...",
+                "faiss_time": 0.03173065185546875,
+                "manual_time": 0.04069232940673828,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.2824296705938927,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CRP is not predictive of postoperative m...",
+                "faiss_time": 0.15989041328430176,
+                "manual_time": 0.030020952224731445,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.18775955110798967,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CX3CR1 on the Th2 cells impairs T cell s...",
+                "faiss_time": 0.1533670425415039,
+                "manual_time": 0.026270389556884766,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.17129097048197642,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CX3CR1 on the Th2 cells promotes T cell ...",
+                "faiss_time": 0.13434934616088867,
+                "manual_time": 0.0352625846862793,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.26246934349833717,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CX3CR1 on the Th2 cells promotes airway ...",
+                "faiss_time": 0.1494297981262207,
+                "manual_time": 0.0246121883392334,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.16470736525016194,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "CX3CR1 on the Th2 cells suppresses airwa...",
+                "faiss_time": 0.026307106018066406,
+                "manual_time": 0.12242507934570312,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.653688598876201,
+                "precision_match_at-5": 1.0
+            }
+        ]
+    }
+}

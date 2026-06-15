@@ -1,0 +1,451 @@
+{
+    "dataset_evaluated": "cranfield",
+    "timestamp": "2026-06-15 22:39:07",
+    "total_queries_evaluated": 225,
+    "model_performance_metrics": {
+        "tfidf": {
+            "MAP": 0.26496811968449513,
+            "MRR": 0.4958366409742858,
+            "Precision@10": 0.21777777777777782,
+            "Recall@10": 0.3568919585173455,
+            "nDCG@10": 0.34544156068464094
+        },
+        "bm25": {
+            "MAP": 0.2848777175186536,
+            "MRR": 0.5302637947458654,
+            "Precision@10": 0.22755555555555557,
+            "Recall@10": 0.37713527484631715,
+            "nDCG@10": 0.36975780616031007
+        },
+        "bert": {
+            "MAP": 0.31659161422111026,
+            "MRR": 0.5401070380086376,
+            "Precision@10": 0.244,
+            "Recall@10": 0.4136458403328888,
+            "nDCG@10": 0.3953210787999995
+        },
+        "hybrid": {
+            "MAP": 0.30731417582989257,
+            "MRR": 0.5443250321379393,
+            "Precision@10": 0.24444444444444444,
+            "Recall@10": 0.4082489204599628,
+            "nDCG@10": 0.3936664805620267
+        },
+        "hybrid_serial": {
+            "MAP": 0.3198266261331273,
+            "MRR": 0.5550431854227676,
+            "Precision@10": 0.2577777777777778,
+            "Recall@10": 0.43283501635772015,
+            "nDCG@10": 0.412164365953133
+        }
+    },
+    "search_efficiency_comparison": {
+        "status": "completed",
+        "average_faiss_time_seconds": 0.12362722873687744,
+        "average_manual_time_seconds": 0.04970003604888916,
+        "speedup_factor": 0.40201528867615766,
+        "average_precision_match_at_5": 1.0,
+        "detailed_queries": [
+            {
+                "query_text": "what similarity laws must be obeyed when...",
+                "faiss_time": 0.01570868492126465,
+                "manual_time": 0.03186368942260742,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.028412281633706,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what are the structural and aeroelastic ...",
+                "faiss_time": 0.16369986534118652,
+                "manual_time": 0.03696465492248535,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.22580748521352098,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what problems of heat conduction in comp...",
+                "faiss_time": 0.1564643383026123,
+                "manual_time": 0.0397944450378418,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.2543355595885161,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "can a criterion be developed to show emp...",
+                "faiss_time": 0.135756254196167,
+                "manual_time": 0.03393387794494629,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.24996180209798685,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what chemical kinetic system is applicab...",
+                "faiss_time": 0.15590953826904297,
+                "manual_time": 0.040433645248413086,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.2593404207165271,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what theoretical and experimental guides...",
+                "faiss_time": 0.13563108444213867,
+                "manual_time": 0.04095053672790527,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.3019258962378577,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "is it possible to relate the available p...",
+                "faiss_time": 0.15336036682128906,
+                "manual_time": 0.03702592849731445,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.24143088116410671,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what methods -dash exact or approximate ...",
+                "faiss_time": 0.16981053352355957,
+                "manual_time": 0.027071237564086914,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.1594202491586368,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "papers on internal /slip flow/ heat tran...",
+                "faiss_time": 0.052947998046875,
+                "manual_time": 0.11325716972351074,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.139026476945245,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "are real-gas transport properties for ai...",
+                "faiss_time": 0.14812827110290527,
+                "manual_time": 0.03485250473022461,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.23528597526134928,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "is it possible to find an analytical,  s...",
+                "faiss_time": 0.10190773010253906,
+                "manual_time": 0.05530714988708496,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.5427179060061016,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "how can the aerodynamic performance of c...",
+                "faiss_time": 0.0713951587677002,
+                "manual_time": 0.08074665069580078,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.130982157467115,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what is the basic mechanism of the trans...",
+                "faiss_time": 0.11841011047363281,
+                "manual_time": 0.06101179122924805,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.5152582915867979,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "papers on shock-sound wave interaction ....",
+                "faiss_time": 0.10557317733764648,
+                "manual_time": 0.04735612869262695,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.4485621242711255,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "material properties of photoelastic mate...",
+                "faiss_time": 0.17730140686035156,
+                "manual_time": 0.03583860397338867,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.2021337822864335,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "can the transverse potential flow about ...",
+                "faiss_time": 0.0971839427947998,
+                "manual_time": 0.06251382827758789,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.643252645239795,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "can the three-dimensional problem of a t...",
+                "faiss_time": 0.1538376808166504,
+                "manual_time": 0.039194583892822266,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.2547788271687212,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "are experimental pressure distributions ...",
+                "faiss_time": 0.1506965160369873,
+                "manual_time": 0.025960206985473633,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.17226812980269496,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "does there exist a good basic treatment ...",
+                "faiss_time": 0.15652799606323242,
+                "manual_time": 0.029741764068603516,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.19000923040367024,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "has anyone formally determined the influ...",
+                "faiss_time": 0.06947803497314453,
+                "manual_time": 0.08546090126037598,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.2300420023883711,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "why does the compressibility transformat...",
+                "faiss_time": 0.0980525016784668,
+                "manual_time": 0.06950807571411133,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.7088863060530757,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "did anyone else discover that the turbul...",
+                "faiss_time": 0.15378069877624512,
+                "manual_time": 0.03249192237854004,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.2112873893609797,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what progress has been made in research ...",
+                "faiss_time": 0.16610026359558105,
+                "manual_time": 0.026762008666992188,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.16111960383249005,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what are the factors which influence the...",
+                "faiss_time": 0.07969045639038086,
+                "manual_time": 0.07668590545654297,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.9622972301837569,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "does a practical flow follow the theoret...",
+                "faiss_time": 0.1552596092224121,
+                "manual_time": 0.03443503379821777,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.22179003264711936,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what is a single approximate formula for...",
+                "faiss_time": 0.15562129020690918,
+                "manual_time": 0.03748321533203125,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.24086174380250122,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "how is the design of ring or part ring w...",
+                "faiss_time": 0.052349090576171875,
+                "manual_time": 0.11099767684936523,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.1203362967281207,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what application has the linear theory d...",
+                "faiss_time": 0.1731112003326416,
+                "manual_time": 0.039166927337646484,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.22625299381198516,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what is the effect of cross sectional sh...",
+                "faiss_time": 0.15095305442810059,
+                "manual_time": 0.042110443115234375,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.2789638359738637,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "papers on flow visualization on slender ...",
+                "faiss_time": 0.06026172637939453,
+                "manual_time": 0.10935807228088379,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.8147185427843453,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what size of end plate can be safely use...",
+                "faiss_time": 0.14152979850769043,
+                "manual_time": 0.04152536392211914,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.29340368148593626,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "to find an approximate correction for th...",
+                "faiss_time": 0.10059189796447754,
+                "manual_time": 0.06243014335632324,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.6206279493639684,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "how do interference-free longitudinal st...",
+                "faiss_time": 0.15408825874328613,
+                "manual_time": 0.03900718688964844,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.2531483398396702,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "have wind tunnel interference effects be...",
+                "faiss_time": 0.156203031539917,
+                "manual_time": 0.02677130699157715,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.17138788362590684,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "are there any papers dealing with acoust...",
+                "faiss_time": 0.1524810791015625,
+                "manual_time": 0.02734065055847168,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.17930520114079856,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "has anyone investigated relaxation effec...",
+                "faiss_time": 0.07747292518615723,
+                "manual_time": 0.09182238578796387,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.1852190370678115,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "are there any theoretical methods for pr...",
+                "faiss_time": 0.1539323329925537,
+                "manual_time": 0.038983821868896484,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.25325297883182396,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "does transition in the hypersonic wake d...",
+                "faiss_time": 0.15520668029785156,
+                "manual_time": 0.021350860595703125,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.13756405687390166,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "how can one detect transition phenomena ...",
+                "faiss_time": 0.11089396476745605,
+                "manual_time": 0.0582427978515625,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.5252116106922256,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "how can one detect transition phenomena ...",
+                "faiss_time": 0.15042638778686523,
+                "manual_time": 0.029253721237182617,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.19447200499576817,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "has anyone investigated and developed a ...",
+                "faiss_time": 0.05419421195983887,
+                "manual_time": 0.09546780586242676,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.7615867527176903,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what is a criterion that the transonic f...",
+                "faiss_time": 0.052889347076416016,
+                "manual_time": 0.11349296569824219,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.1458568118503023,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "can the transonic flow around an arbitra...",
+                "faiss_time": 0.15556740760803223,
+                "manual_time": 0.020676612854003906,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.13291095591244098,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what are the details of the rigorous kin...",
+                "faiss_time": 0.1366724967956543,
+                "manual_time": 0.04295969009399414,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.31432578683497137,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "has anyone investigated the effect of su...",
+                "faiss_time": 0.034369468688964844,
+                "manual_time": 0.06582784652709961,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.9153000915674685,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what is the combined effect of surface h...",
+                "faiss_time": 0.16381144523620605,
+                "manual_time": 0.021942853927612305,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.13395189753665904,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what are the existing solutions for hype...",
+                "faiss_time": 0.15510129928588867,
+                "manual_time": 0.02113652229309082,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.13627559788607038,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what controls leading-edge attachment at...",
+                "faiss_time": 0.047605276107788086,
+                "manual_time": 0.025379657745361328,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.5331269939049736,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "can the three-point boundary-value probl...",
+                "faiss_time": 0.14991474151611328,
+                "manual_time": 0.0684664249420166,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.45670241798507605,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "what are the effects of small amounts of...",
+                "faiss_time": 0.14350080490112305,
+                "manual_time": 0.03464460372924805,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.24142445579395433,
+                "precision_match_at-5": 1.0
+            }
+        ]
+    }
+}

@@ -1,0 +1,451 @@
+{
+    "dataset_evaluated": "vaswani",
+    "timestamp": "2026-06-15 22:43:51",
+    "total_queries_evaluated": 93,
+    "model_performance_metrics": {
+        "tfidf": {
+            "MAP": 0.17407507201386282,
+            "MRR": 0.5392159449187099,
+            "Precision@10": 0.2591397849462365,
+            "Recall@10": 0.17020837199821048,
+            "nDCG@10": 0.3135648097887801
+        },
+        "bm25": {
+            "MAP": 0.23744166629842675,
+            "MRR": 0.6725820133086425,
+            "Precision@10": 0.3279569892473118,
+            "Recall@10": 0.20660889503349394,
+            "nDCG@10": 0.4049497989979062
+        },
+        "bert": {
+            "MAP": 0.25282836623812877,
+            "MRR": 0.6801910679994172,
+            "Precision@10": 0.36344086021505373,
+            "Recall@10": 0.22833070257282412,
+            "nDCG@10": 0.4335075940749842
+        },
+        "hybrid": {
+            "MAP": 0.26415403539080584,
+            "MRR": 0.6993657691168848,
+            "Precision@10": 0.3602150537634409,
+            "Recall@10": 0.2197109405574802,
+            "nDCG@10": 0.4392577248940142
+        },
+        "hybrid_serial": {
+            "MAP": 0.0,
+            "MRR": 0.0,
+            "Precision@10": 0.0,
+            "Recall@10": 0.0,
+            "nDCG@10": 0.0
+        }
+    },
+    "search_efficiency_comparison": {
+        "status": "completed",
+        "average_faiss_time_seconds": 0.11865687847137452,
+        "average_manual_time_seconds": 0.0554600715637207,
+        "speedup_factor": 0.46739870691188135,
+        "average_precision_match_at_5": 0.0,
+        "detailed_queries": [
+            {
+                "query_text": "MEASUREMENT OF DIELECTRIC CONSTANT OF LI...",
+                "faiss_time": 0.025171995162963867,
+                "manual_time": 0.04565787315368652,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.8138360848274753,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "MATHEMATICAL ANALYSIS AND DESIGN DETAILS...",
+                "faiss_time": 0.17111897468566895,
+                "manual_time": 0.04192304611206055,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.2449935560277265,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "USE OF DIGITAL COMPUTERS IN THE DESIGN O...",
+                "faiss_time": 0.07721519470214844,
+                "manual_time": 0.08253145217895508,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.0688498876071437,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "SYSTEMS OF DATA CODING FOR INFORMATION T...",
+                "faiss_time": 0.06423401832580566,
+                "manual_time": 0.09877729415893555,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.53777230093127,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "USE OF PROGRAMS IN ENGINEERING TESTING O...",
+                "faiss_time": 0.060935020446777344,
+                "manual_time": 0.045430660247802734,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.7455591204319587,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "NUMBER REPRESENTATION IN BINARY MACHINES...",
+                "faiss_time": 0.15707778930664062,
+                "manual_time": 0.03595113754272461,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.22887473589625276,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "SECONDARY EMISSION OF ELECTRONS BY POSIT...",
+                "faiss_time": 0.05756235122680664,
+                "manual_time": 0.05325460433959961,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.9251638128846807,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "MEASUREMENT OF PLASMA TEMPERATURES IN AR...",
+                "faiss_time": 0.1755998134613037,
+                "manual_time": 0.036382436752319336,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.20718949545089807,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "CHARACTERISTICS OF THE SINGLE ELECTRODE ...",
+                "faiss_time": 0.06314373016357422,
+                "manual_time": 0.05950450897216797,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.9423660721028227,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "METHODS OF CALCULATING INSTANTANEOUS POW...",
+                "faiss_time": 0.15465021133422852,
+                "manual_time": 0.04507303237915039,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.291451476142758,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE EFFECT OF OXIDATION ON CIRCUIT BREAK...",
+                "faiss_time": 0.10781669616699219,
+                "manual_time": 0.048642635345458984,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.4511605073681603,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "TEMPERATURE INDEPENDENT METHODS FOR TUNI...",
+                "faiss_time": 0.08452200889587402,
+                "manual_time": 0.0718536376953125,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.8501174857761818,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "MATHEMATICAL EXPRESSIONS AND GRAPHS FOR ...",
+                "faiss_time": 0.11014223098754883,
+                "manual_time": 0.06953191757202148,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.6312920752429811,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "SYNTHESIS OF FILTERS HAVING HIGH ATTENUA...",
+                "faiss_time": 0.09099864959716797,
+                "manual_time": 0.06199908256530762,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.6813187101101458,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "VOLTAGE CURRENT RELATIONSHIPS IN NETWORK...",
+                "faiss_time": 0.08094954490661621,
+                "manual_time": 0.04543471336364746,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.5612720048773735,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "METHODS OF APPROXIMATING THE FREQUENCY P...",
+                "faiss_time": 0.15404176712036133,
+                "manual_time": 0.06562519073486328,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.4260220585731576,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "OBSERVATIONS OF RAPID FLUCTUATIONS IN TH...",
+                "faiss_time": 0.13074254989624023,
+                "manual_time": 0.052294254302978516,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.3999788465536295,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "DIURNAL VARIATIONS OF FLUCTUATIONS IN TH...",
+                "faiss_time": 0.0711524486541748,
+                "manual_time": 0.05514788627624512,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.7750665974165228,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "SPHERICAL HARMONIC ANALYSIS OF THE EARTH...",
+                "faiss_time": 0.055037736892700195,
+                "manual_time": 0.10135197639465332,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.841499707596006,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "DERIVATION OF THE COMPONENTS OF THE ELEC...",
+                "faiss_time": 0.044234275817871094,
+                "manual_time": 0.06213951110839844,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.4047819244119613,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE EFFECTS OF SOLAR FLARES ON THE ABSOR...",
+                "faiss_time": 0.1674032211303711,
+                "manual_time": 0.03899884223937988,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.23296351155040304,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "DETERMINATION OF THE CURRENT SYSTEMS IN ...",
+                "faiss_time": 0.10152268409729004,
+                "manual_time": 0.06821107864379883,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.6718801738775108,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "OBSERVATIONS OF THE SUN DURING ECLIPSES ...",
+                "faiss_time": 0.05439615249633789,
+                "manual_time": 0.09204602241516113,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.6921421496007083,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "OBSERVATIONS OF THE SUN USING RADIO INTE...",
+                "faiss_time": 0.08096933364868164,
+                "manual_time": 0.07874441146850586,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.972521421630694,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "EQUATIONS GOVERNING THE PROPAGATION OF E...",
+                "faiss_time": 0.1768484115600586,
+                "manual_time": 0.026215076446533203,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.148234729479775,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "ESTIMATES OF THE DENSITY OF IONIZATION A...",
+                "faiss_time": 0.17112469673156738,
+                "manual_time": 0.03198552131652832,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.1869135310533348,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "PLEASE SEND ABSTRACTS ON THE SOURCE SPEC...",
+                "faiss_time": 0.1973268985748291,
+                "manual_time": 0.04231834411621094,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.21445806132793008,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE EFFECT OF SMALL DISTORTIONS IN THE S...",
+                "faiss_time": 0.05075192451477051,
+                "manual_time": 0.05228400230407715,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.030187580154931,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE DETERMINATION OF THE ORBITS OF INDIV...",
+                "faiss_time": 0.08438348770141602,
+                "manual_time": 0.07865262031555176,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.9320854406238521,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE DETERMINATION OF ION MASSES IN THE I...",
+                "faiss_time": 0.18076753616333008,
+                "manual_time": 0.029053449630737305,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.1607227174047803,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THEORETICAL STUDIES OF THE SOURCE OF HIG...",
+                "faiss_time": 0.16437387466430664,
+                "manual_time": 0.03534674644470215,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.2150387129152319,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "SIMULTANEOUS OBSERVATIONS OF WHISTLERS A...",
+                "faiss_time": 0.1606004238128662,
+                "manual_time": 0.02901315689086914,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.1806542984262337,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "VARIATIONS IN THE HEIGHT OF REFLECTION O...",
+                "faiss_time": 0.17788434028625488,
+                "manual_time": 0.061652183532714844,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.34658578396222495,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE USE OF IONOSPHERIC CROSS MODULATION ...",
+                "faiss_time": 0.17346405982971191,
+                "manual_time": 0.03621268272399902,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.20876187701099977,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "MEASUREMENTS OF IONOSPHERIC DRIFTS NEAR ...",
+                "faiss_time": 0.16457080841064453,
+                "manual_time": 0.03525567054748535,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.21422797206849592,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE USE OF ANALOGUE COMPUTERS IN UPPER A...",
+                "faiss_time": 0.17086291313171387,
+                "manual_time": 0.05213809013366699,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.30514574039525516,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "THE USE OF LUNAR RADIO REFLECTIONS IN IN...",
+                "faiss_time": 0.06435370445251465,
+                "manual_time": 0.05865621566772461,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.9114660324023133,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "WHAT REFERENCES ON COMPARISON BETWEEN GR...",
+                "faiss_time": 0.16741251945495605,
+                "manual_time": 0.03560686111450195,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.2126893569873209,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "WHAT REFERENCES ON MODEL EXPERIMENTS IN ...",
+                "faiss_time": 0.1698930263519287,
+                "manual_time": 0.03283095359802246,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.19324485709033193,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "WHAT REFERENCES ON INTEGRAL SPECTRUM OF ...",
+                "faiss_time": 0.06547737121582031,
+                "manual_time": 0.11423039436340332,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.744578199190189,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "FERROMAGNETIC TECHNIQUES FOR COMPUTER ST...",
+                "faiss_time": 0.17426443099975586,
+                "manual_time": 0.04217720031738281,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.24202988570537323,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "SOLUTION OF DIFFERENTIAL EQUATIONS BY CO...",
+                "faiss_time": 0.08182716369628906,
+                "manual_time": 0.0712285041809082,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.8704750472016969,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "EFFICIENCY OF DIGITAL COMPUTERS VERSUS A...",
+                "faiss_time": 0.18761253356933594,
+                "manual_time": 0.04216170310974121,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.22472753982696747,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "METHODS OF ERROR CHECKING IN DIGITAL COM...",
+                "faiss_time": 0.1398463249206543,
+                "manual_time": 0.046504974365234375,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.3325434142915108,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "METHODS OF PRODUCING MINIMAL NETS GIVEN ...",
+                "faiss_time": 0.0900113582611084,
+                "manual_time": 0.06954622268676758,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.7726382984359066,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "ARITHMETIC UNITS AS REQUIRED IN A DIGITA...",
+                "faiss_time": 0.1908278465270996,
+                "manual_time": 0.03556680679321289,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.18638163895101137,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "INFORMATION ON THE DESIGN OF LOW DRIFT T...",
+                "faiss_time": 0.05751347541809082,
+                "manual_time": 0.1022343635559082,
+                "precision_match_at_5": 0.0,
+                "speedup": 1.7775723482665848,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "INFORMATION ON HIGH CURRENT TRANSISTOR S...",
+                "faiss_time": 0.10010671615600586,
+                "manual_time": 0.06976842880249023,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.6969405398711054,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "INFORMATION ON DESIGN OF TIME DIVISION M...",
+                "faiss_time": 0.15342259407043457,
+                "manual_time": 0.04632830619812012,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.3019653427112001,
+                "precision_match_at-5": 0.0
+            },
+            {
+                "query_text": "DETAILS OF AVAILABLE LOW VOLTAGE CAPACIT...",
+                "faiss_time": 0.07667708396911621,
+                "manual_time": 0.03952789306640625,
+                "precision_match_at_5": 0.0,
+                "speedup": 0.5155111673564319,
+                "precision_match_at-5": 0.0
+            }
+        ]
+    }
+}
