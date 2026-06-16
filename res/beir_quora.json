@@ -1,0 +1,451 @@
+{
+    "dataset_evaluated": "beir/quora",
+    "timestamp": "2026-06-16 02:50:17",
+    "total_queries_evaluated": 10000,
+    "model_performance_metrics": {
+        "tfidf": {
+            "MAP": 0.6398980517973687,
+            "MRR": 0.678235242947116,
+            "Precision@10": 0.1049,
+            "Recall@10": 0.7882432052163402,
+            "nDCG@10": 0.6813295007028095
+        },
+        "bm25": {
+            "MAP": 0.6891274553495533,
+            "MRR": 0.7255351768915184,
+            "Precision@10": 0.11172,
+            "Recall@10": 0.8358358304857105,
+            "nDCG@10": 0.7309257213633298
+        },
+        "bert": {
+            "MAP": 0.8428041260350566,
+            "MRR": 0.8685135737598945,
+            "Precision@10": 0.13368000000000002,
+            "Recall@10": 0.9499109396766111,
+            "nDCG@10": 0.875250397089985
+        },
+        "hybrid": {
+            "MAP": 0.7551626512100947,
+            "MRR": 0.7882447093954403,
+            "Precision@10": 0.11999000000000001,
+            "Recall@10": 0.8832701555334966,
+            "nDCG@10": 0.7920461940999292
+        },
+        "hybrid_serial": {
+            "MAP": 0.825815140162794,
+            "MRR": 0.8571774862281484,
+            "Precision@10": 0.12901999999999997,
+            "Recall@10": 0.9246280272479318,
+            "nDCG@10": 0.8587889144937575
+        }
+    },
+    "search_efficiency_comparison": {
+        "status": "completed",
+        "average_faiss_time_seconds": 0.4150149202346802,
+        "average_manual_time_seconds": 9.831175155639649,
+        "speedup_factor": 23.688727022345063,
+        "average_precision_match_at_5": 1.0,
+        "detailed_queries": [
+            {
+                "query_text": "Which question should I ask on Quora?...",
+                "faiss_time": 0.7623448371887207,
+                "manual_time": 4.446052312850952,
+                "precision_match_at_5": 1.0,
+                "speedup": 5.832075061000667,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What causes a nightmare?...",
+                "faiss_time": 0.3528714179992676,
+                "manual_time": 2.974311590194702,
+                "precision_match_at_5": 1.0,
+                "speedup": 8.428882132360393,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Does it matter whether humans are selfis...",
+                "faiss_time": 0.2679917812347412,
+                "manual_time": 3.040496587753296,
+                "precision_match_at_5": 1.0,
+                "speedup": 11.345484453831228,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "If I do not monetize YouTube videos & up...",
+                "faiss_time": 0.195343017578125,
+                "manual_time": 1.9134628772735596,
+                "precision_match_at_5": 1.0,
+                "speedup": 9.7953994004843,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Do animals kiss?...",
+                "faiss_time": 0.18157529830932617,
+                "manual_time": 0.8514738082885742,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.689370284486766,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Who is disrupting Bloomberg?...",
+                "faiss_time": 0.18608665466308594,
+                "manual_time": 1.3146986961364746,
+                "precision_match_at_5": 1.0,
+                "speedup": 7.0649810891424005,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What do you people think of Mr. Arvind K...",
+                "faiss_time": 0.19071459770202637,
+                "manual_time": 1.6328175067901611,
+                "precision_match_at_5": 1.0,
+                "speedup": 8.561575917441228,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Do we exist?...",
+                "faiss_time": 0.18576383590698242,
+                "manual_time": 0.8609797954559326,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.63480844510043,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What jobs are available with a bachelor’...",
+                "faiss_time": 0.16707348823547363,
+                "manual_time": 0.8299124240875244,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.967349594795342,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Which are the best books to understand c...",
+                "faiss_time": 0.11783432960510254,
+                "manual_time": 0.8225164413452148,
+                "precision_match_at_5": 1.0,
+                "speedup": 6.980278532594951,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How can I learn about web design?...",
+                "faiss_time": 0.18246173858642578,
+                "manual_time": 0.8893556594848633,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.874203580295309,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How do earthquake resistant buildings wo...",
+                "faiss_time": 0.166856050491333,
+                "manual_time": 1.6382460594177246,
+                "precision_match_at_5": 1.0,
+                "speedup": 9.818319770806394,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What should I do to be a good Speaker?...",
+                "faiss_time": 0.16424560546875,
+                "manual_time": 0.8190717697143555,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.986871748420661,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How can I maintain my peace of mind?...",
+                "faiss_time": 0.1705760955810547,
+                "manual_time": 0.8360700607299805,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.9014491619237175,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Why do dreams look so real?...",
+                "faiss_time": 0.15976953506469727,
+                "manual_time": 0.819237232208252,
+                "precision_match_at_5": 1.0,
+                "speedup": 5.1276185530395955,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Are there any strong indications that Do...",
+                "faiss_time": 0.12041807174682617,
+                "manual_time": 0.8227152824401855,
+                "precision_match_at_5": 1.0,
+                "speedup": 6.832157918704338,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What's your bucket list?...",
+                "faiss_time": 0.1685175895690918,
+                "manual_time": 0.8055658340454102,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.7803071246466535,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How can I join MIT?...",
+                "faiss_time": 0.14044833183288574,
+                "manual_time": 5.6485912799835205,
+                "precision_match_at_5": 1.0,
+                "speedup": 40.218286726997725,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Why are police lights red and/or blue?...",
+                "faiss_time": 0.16408777236938477,
+                "manual_time": 3.283087968826294,
+                "precision_match_at_5": 1.0,
+                "speedup": 20.00812078450062,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Is it necessary to unlock bootloader bef...",
+                "faiss_time": 0.17257976531982422,
+                "manual_time": 3.9292726516723633,
+                "precision_match_at_5": 1.0,
+                "speedup": 22.767864149024938,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How can I hack another WhatsApp account?...",
+                "faiss_time": 1.279663324356079,
+                "manual_time": 1.062910795211792,
+                "precision_match_at_5": 1.0,
+                "speedup": 0.8306175343007849,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How much weight will I lose by not eatin...",
+                "faiss_time": 0.7349395751953125,
+                "manual_time": 6.233627557754517,
+                "precision_match_at_5": 1.0,
+                "speedup": 8.481823224852072,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is the difference between sex and m...",
+                "faiss_time": 0.28381848335266113,
+                "manual_time": 8.703108549118042,
+                "precision_match_at_5": 1.0,
+                "speedup": 30.664347319141715,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How do I start solar energy business?...",
+                "faiss_time": 0.12755560874938965,
+                "manual_time": 7.080389976501465,
+                "precision_match_at_5": 1.0,
+                "speedup": 55.50826063958041,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is the reason Pakistan supports ter...",
+                "faiss_time": 0.18745160102844238,
+                "manual_time": 4.208012819290161,
+                "precision_match_at_5": 1.0,
+                "speedup": 22.44852962686444,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "In your opinion, what is the best classi...",
+                "faiss_time": 0.13916563987731934,
+                "manual_time": 9.12867546081543,
+                "precision_match_at_5": 1.0,
+                "speedup": 65.59575674615344,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How are the conditions inside European R...",
+                "faiss_time": 0.13268494606018066,
+                "manual_time": 14.887638330459595,
+                "precision_match_at_5": 1.0,
+                "speedup": 112.20291956637755,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Is (male) circumcision required in Islam...",
+                "faiss_time": 0.27694058418273926,
+                "manual_time": 76.20006513595581,
+                "precision_match_at_5": 1.0,
+                "speedup": 275.149506746455,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Where can I get super high quality photo...",
+                "faiss_time": 2.272709608078003,
+                "manual_time": 9.595807075500488,
+                "precision_match_at_5": 1.0,
+                "speedup": 4.2221879299465455,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is fermentation? What are some prod...",
+                "faiss_time": 0.391268253326416,
+                "manual_time": 96.41814541816711,
+                "precision_match_at_5": 1.0,
+                "speedup": 246.4246577596219,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is most important in life - money o...",
+                "faiss_time": 0.17075419425964355,
+                "manual_time": 10.096323490142822,
+                "precision_match_at_5": 1.0,
+                "speedup": 59.127821333575355,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Who is best Indian hacker?...",
+                "faiss_time": 0.7034826278686523,
+                "manual_time": 2.5302889347076416,
+                "precision_match_at_5": 1.0,
+                "speedup": 3.596803722607452,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How should you start learning programmin...",
+                "faiss_time": 1.2542736530303955,
+                "manual_time": 13.3499596118927,
+                "precision_match_at_5": 1.0,
+                "speedup": 10.64357812159926,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Is there a big chance that Trump will wi...",
+                "faiss_time": 0.17372560501098633,
+                "manual_time": 20.653011798858643,
+                "precision_match_at_5": 1.0,
+                "speedup": 118.88294645773463,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How can I meet Suresh Raina?...",
+                "faiss_time": 2.5674831867218018,
+                "manual_time": 129.48510432243347,
+                "precision_match_at_5": 1.0,
+                "speedup": 50.432698057026755,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How do I know if my online girlfriend tr...",
+                "faiss_time": 2.500488519668579,
+                "manual_time": 34.99399495124817,
+                "precision_match_at_5": 1.0,
+                "speedup": 13.994863274111877,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Why is the soul immortal?...",
+                "faiss_time": 0.23326730728149414,
+                "manual_time": 1.8953759670257568,
+                "precision_match_at_5": 1.0,
+                "speedup": 8.125339076077736,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Will Google's virtual monopoly in web se...",
+                "faiss_time": 0.2089557647705078,
+                "manual_time": 0.6640055179595947,
+                "precision_match_at_5": 1.0,
+                "speedup": 3.177732467390213,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Which is the best PMP Certification cour...",
+                "faiss_time": 0.17805099487304688,
+                "manual_time": 0.5386450290679932,
+                "precision_match_at_5": 1.0,
+                "speedup": 3.0252289769683984,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How is the job situation in New Zealand ...",
+                "faiss_time": 0.23090147972106934,
+                "manual_time": 0.510582685470581,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.211257745456498,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What do we need to have the best Hallowe...",
+                "faiss_time": 0.220994234085083,
+                "manual_time": 0.5169193744659424,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.3390627208261368,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is the very first thing you remembe...",
+                "faiss_time": 0.30162692070007324,
+                "manual_time": 0.5067634582519531,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.68010022804251,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is the reason behind the reactance ...",
+                "faiss_time": 0.22881579399108887,
+                "manual_time": 0.535503625869751,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.340326323324543,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is value of 0?...",
+                "faiss_time": 0.2243194580078125,
+                "manual_time": 0.5269865989685059,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.3492683320862526,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How should I be a people person?...",
+                "faiss_time": 0.20578908920288086,
+                "manual_time": 0.48923254013061523,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.377349265821846,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What is a good song for lyric prank?...",
+                "faiss_time": 0.23297786712646484,
+                "manual_time": 0.5286538600921631,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.269116232423914,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Do you think of mathematics as art or sc...",
+                "faiss_time": 0.2889833450317383,
+                "manual_time": 0.5218334197998047,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.805756036710327,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "What are the best things to learn in lif...",
+                "faiss_time": 0.21582674980163574,
+                "manual_time": 0.5099730491638184,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.362881568816329,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "Can you be a sociopath with more psychop...",
+                "faiss_time": 0.33342552185058594,
+                "manual_time": 0.5004088878631592,
+                "precision_match_at_5": 1.0,
+                "speedup": 1.5008115908037825,
+                "precision_match_at-5": 1.0
+            },
+            {
+                "query_text": "How can I meet Modi?...",
+                "faiss_time": 0.23284626007080078,
+                "manual_time": 0.508873701095581,
+                "precision_match_at_5": 1.0,
+                "speedup": 2.1854493215431057,
+                "precision_match_at-5": 1.0
+            }
+        ]
+    }
+}
