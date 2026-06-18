@@ -44,19 +44,18 @@ def select_dataset():
 
 
 def calculate_metrics(retrieved, relevant):
-    """Calculates evaluation metrics including MAP, MRR, P@10, R@10, and nDCG@10."""
-    metrics = {"AP": 0.0, "RR": 0.0, "P@10": 0.0, "R@10": 0.0, "nDCG@10": 0.0}
+    """Calculates evaluation metrics including MAP, P@10, Recall, and nDCG."""
+    metrics = {"AP": 0.0, "P@10": 0.0, "Recall": 0.0, "nDCG": 0.0}
     if not retrieved or not relevant:
         return metrics
 
-    hits, sum_p, rr = 0, 0.0, 0.0
+    hits, sum_p = 0, 0.0
     first = True
 
-    # MAP & MRR
+    # MAP
     for i, doc_id in enumerate(retrieved):
         if doc_id in relevant:
             if first:
-                rr = 1 / (i + 1)
                 first = False
             hits += 1
             sum_p += hits / (i + 1)
@@ -78,7 +77,7 @@ def calculate_metrics(retrieved, relevant):
     idcg = sum([1.0 / np.log2(i + 2) for i in range(min(10, len(relevant)))])
     ndcg_10 = (dcg / idcg) if idcg > 0 else 0.0
 
-    return {"AP": ap, "RR": rr, "P@10": p10, "R@10": r10, "nDCG@10": ndcg_10}
+    return {"AP": ap, "P@10": p10, "Recall": r10, "nDCG": ndcg_10}
 
 
 def evaluate_model(queries, qrels, query_ids, dataset_name, model_type, search_api_url):
@@ -103,7 +102,6 @@ def evaluate_model(queries, qrels, query_ids, dataset_name, model_type, search_a
             "top_k": 100,
             "k1": BEST_K1,
             "b": BEST_B,
-            "enable_ner_reranking": False,
             "hybrid_bm25_weight": 0.8,
         }
 
@@ -122,10 +120,9 @@ def evaluate_model(queries, qrels, query_ids, dataset_name, model_type, search_a
     # Rename keys to requested clean formats
     return {
         "MAP": df_metrics["AP"],
-        "MRR": df_metrics["RR"],
         "Precision@10": df_metrics["P@10"],
-        "Recall@10": df_metrics["R@10"],
-        "nDCG@10": df_metrics["nDCG@10"],
+        "Recall": df_metrics["Recall"],
+        "nDCG": df_metrics["nDCG"],
     }
 
 
@@ -301,7 +298,7 @@ def main():
         json.dump(output_data, json_file, indent=4, ensure_ascii=False)
 
     print(
-        f"\n✨ Success! Complete results have been safely stored in '{clean_filename}'.\n"
+        f"\nSuccess! Complete results have been safely stored in '{clean_filename}'.\n"
     )
 
 

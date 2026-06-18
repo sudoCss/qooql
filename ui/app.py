@@ -240,18 +240,6 @@ class PotatoSafeIRApp(tk.Tk):
 
         features_frame = ttk.Frame(query_frame)
         features_frame.pack(fill=tk.X, pady=2)
-        self.ner_var = tk.BooleanVar(value=False)
-        self.chk_ner = tk.Checkbutton(
-            features_frame,
-            text="Enable Named Entity Recognition (NER) Reranking",
-            variable=self.ner_var,
-            bg=self.bg_main,
-            fg=self.fg_muted,
-            selectcolor=self.bg_main,
-            activebackground=self.bg_main,
-            activeforeground=self.fg_main,
-        )
-        self.chk_ner.pack(side=tk.LEFT, padx=5)
 
         self.faiss_var = tk.BooleanVar(value=False)
         self.chk_faiss = tk.Checkbutton(
@@ -434,7 +422,7 @@ class PotatoSafeIRApp(tk.Tk):
             font=("Segoe UI", 10, "bold"),
         )
 
-        cols = ("Model", "MAP", "MRR", "Precision@10", "Recall@10", "nDCG@10")
+        cols = ("Model", "MAP", "Precision@10", "Recall", "nDCG")
         tree = ttk.Treeview(
             metrics_frame,
             columns=cols,
@@ -452,17 +440,16 @@ class PotatoSafeIRApp(tk.Tk):
 
         model_data = data.get("model_performance_metrics", {})
         for model_name, metrics in model_data.items():
-            if metrics: # check if metrics are not empty
+            if metrics:  # check if metrics are not empty
                 tree.insert(
                     "",
                     tk.END,
                     values=(
                         model_name.upper(),
                         f"{metrics.get('MAP', 0.0):.4f}",
-                        f"{metrics.get('MRR', 0.0):.4f}",
                         f"{metrics.get('Precision@10', 0.0):.4f}",
-                        f"{metrics.get('Recall@10', 0.0):.4f}",
-                        f"{metrics.get('nDCG@10', 0.0):.4f}",
+                        f"{metrics.get('Recall', 0.0):.4f}",
+                        f"{metrics.get('nDCG', 0.0):.4f}",
                     ),
                 )
         tree.pack(fill=tk.X, pady=5)
@@ -502,13 +489,41 @@ class PotatoSafeIRApp(tk.Tk):
 
             faiss_t = eff_data.get("average_faiss_time_seconds", 0.0)
             manual_t = eff_data.get("average_manual_time_seconds", 0.0)
-            create_metric_block(card_inner, 0, 0, "Avg FAISS Response (API)", f"{faiss_t:.4f} sec", self.accent_green)
-            create_metric_block(card_inner, 0, 1, "Avg Manual Response (Brute)", f"{manual_t:.4f} sec", "#ef4444")
+            create_metric_block(
+                card_inner,
+                0,
+                0,
+                "Avg FAISS Response (API)",
+                f"{faiss_t:.4f} sec",
+                self.accent_green,
+            )
+            create_metric_block(
+                card_inner,
+                0,
+                1,
+                "Avg Manual Response (Brute)",
+                f"{manual_t:.4f} sec",
+                "#ef4444",
+            )
 
             speedup = eff_data.get("speedup_factor", 1.0)
             precision_match = eff_data.get("average_precision_match_at_5", 1.0) * 100.0
-            create_metric_block(card_inner, 2, 0, "Speedup Multiplier Factor", f"{speedup:.2f}x Faster", "#f59e0b")
-            create_metric_block(card_inner, 2, 1, "Index Match Precision @5", f"{precision_match:.1f}%", "#8b5cf6")
+            create_metric_block(
+                card_inner,
+                2,
+                0,
+                "Speedup Multiplier Factor",
+                f"{speedup:.2f}x Faster",
+                "#f59e0b",
+            )
+            create_metric_block(
+                card_inner,
+                2,
+                1,
+                "Index Match Precision @5",
+                f"{precision_match:.1f}%",
+                "#8b5cf6",
+            )
         else:
             lbl_fallback = tk.Label(
                 efficiency_frame,
@@ -518,7 +533,6 @@ class PotatoSafeIRApp(tk.Tk):
                 fg=self.fg_muted,
             )
             lbl_fallback.pack(expand=True, pady=20)
-
 
         # ---- TAB 2: DETAILED QUERY BREAKDOWN ----
         tab2 = ttk.Frame(notebook, padding="10")
@@ -535,7 +549,13 @@ class PotatoSafeIRApp(tk.Tk):
 
         if status == "completed" and detailed_queries:
             # Treeview table with Scrollbar for handling query logs safely
-            det_cols = ("Query Text Sample", "FAISS Time (s)", "Manual Time (s)", "Speedup Factor", "Precision Match @5")
+            det_cols = (
+                "Query Text Sample",
+                "FAISS Time (s)",
+                "Manual Time (s)",
+                "Speedup Factor",
+                "Precision Match @5",
+            )
 
             tree_scroll = ttk.Scrollbar(det_frame)
             tree_scroll.pack(side=tk.RIGHT, fill=tk.Y)
@@ -545,7 +565,7 @@ class PotatoSafeIRApp(tk.Tk):
                 columns=det_cols,
                 show="headings",
                 style="Popup.Treeview",
-                yscrollcommand=tree_scroll.set
+                yscrollcommand=tree_scroll.set,
             )
             tree_scroll.config(command=det_tree.yview)
 
@@ -560,21 +580,21 @@ class PotatoSafeIRApp(tk.Tk):
 
             # Insert all details per query logs
             for item in detailed_queries:
-                f_time = item.get('faiss_time', 0.0)
-                m_time = item.get('manual_time', 0.0)
-                spd = item.get('speedup', 0.0)
-                pm5 = item.get('precision_match_at_5', 0.0)
+                f_time = item.get("faiss_time", 0.0)
+                m_time = item.get("manual_time", 0.0)
+                spd = item.get("speedup", 0.0)
+                pm5 = item.get("precision_match_at_5", 0.0)
 
                 det_tree.insert(
                     "",
                     tk.END,
                     values=(
-                        item.get('query_text', 'Unknown'),
+                        item.get("query_text", "Unknown"),
                         f"{f_time:.4f}s",
                         f"{m_time:.4f}s",
                         f"{spd:.2f}x",
-                        f"{pm5 * 100.0:.0f}%"
-                    )
+                        f"{pm5 * 100.0:.0f}%",
+                    ),
                 )
             det_tree.pack(fill=tk.BOTH, expand=True, pady=5)
         else:
@@ -584,7 +604,7 @@ class PotatoSafeIRApp(tk.Tk):
                 font=("Segoe UI", 10, "italic"),
                 bg=self.bg_main,
                 fg=self.fg_muted,
-                justify=tk.CENTER
+                justify=tk.CENTER,
             )
             lbl_fallback_det.pack(expand=True, pady=20)
 
@@ -712,7 +732,6 @@ class PotatoSafeIRApp(tk.Tk):
             "model_type": self.model_var.get(),
             "k1": float(self.ent_k1.get() or 1.6),
             "b": float(self.ent_b.get() or 0.75),
-            "enable_ner_reranking": self.ner_var.get(),
             "use_faiss": self.faiss_var.get(),
             "hybrid_bm25_weight": float(self.slider_weight.get()),
             "top_k": 10,

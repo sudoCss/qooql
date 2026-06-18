@@ -29,7 +29,6 @@ class SearchRequest(BaseModel):
     top_k: int = 10
     k1: float = 1.6
     b: float = 0.75
-    enable_ner_reranking: bool = False
     hybrid_bm25_weight: float = 0.8
     use_faiss: bool = True
 
@@ -272,7 +271,7 @@ class SearchService:
     def search(self, req: SearchRequest):
         models = self._load_models(req.dataset_name)
         processed_query = self.preprocessor.preprocess(req.query)
-        initial_retrieval_size = 50 if req.enable_ner_reranking else req.top_k
+        initial_retrieval_size = req.top_k
 
         base_model_map = {
             "tfidf": lambda: self._search_tfidf(
@@ -310,7 +309,7 @@ class SearchService:
             )
         initial_results = base_model_map[req.model_type]()
 
-        if not initial_results or not req.enable_ner_reranking:
+        if not initial_results:
             return initial_results[: req.top_k]
 
         query_entities = self.preprocessor.extract_entities(req.query)
@@ -321,7 +320,6 @@ class SearchService:
         candidate_texts = self._fetch_original_texts(candidate_ids, req.dataset_name)
 
         reranked_results = []
-        ner_bonus = 0.5  # if req.enable_ner_reranking else 0
         for result in initial_results:
             doc_id, original_score = result["doc_id"], result["score"]
             doc_text = candidate_texts.get(doc_id, "")
@@ -330,7 +328,7 @@ class SearchService:
             reranked_results.append(
                 {
                     "doc_id": doc_id,
-                    "score": original_score + (matching_count * ner_bonus),
+                    "score": original_score + (matching_count),
                 }
             )
 

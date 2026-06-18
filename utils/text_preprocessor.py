@@ -1,26 +1,29 @@
 # utils/text_preprocessor.py
 import re
 import string
-from nltk.tokenize import word_tokenize
+
+from nltk import ne_chunk, pos_tag
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from nltk import pos_tag, ne_chunk
+from nltk.tokenize import word_tokenize
 from nltk.tree import Tree
+
 
 class TextPreprocessor:
     """
     An enhanced preprocessor that separates base processing (lemmatization)
-    from advanced feature extraction (NER).
+    from advanced feature extraction.
     """
+
     def __init__(self):
-        self.stop_words = set(stopwords.words('english'))
+        self.stop_words = set(stopwords.words("english"))
         self.lemmatizer = WordNetLemmatizer()
 
     def _get_wordnet_pos(self, tag_parameter):
         """Map POS tag to first character lemmatize() accepts"""
         tag = tag_parameter[0].upper()
         tag_dict = {"J": "a", "N": "n", "V": "v", "R": "r"}
-        return tag_dict.get(tag, 'n')
+        return tag_dict.get(tag, "n")
 
     def preprocess(self, text):
         """
@@ -33,7 +36,7 @@ class TextPreprocessor:
 
         processed_tokens = []
         for word, tag in pos_tags:
-            word = re.sub(r'[\d' + string.punctuation + ']', '', word)
+            word = re.sub(r"[\d" + string.punctuation + "]", "", word)
             if not word:
                 continue
 
@@ -80,7 +83,7 @@ class TextPreprocessor:
             if isinstance(chunk, Tree):
                 # It's a named entity, join the words and lemmatize
                 for word, tag in chunk.leaves():
-                     lemma = self.lemmatizer.lemmatize(word, self._get_wordnet_pos(tag))
-                     if lemma not in self.stop_words and len(lemma) > 2:
+                    lemma = self.lemmatizer.lemmatize(word, self._get_wordnet_pos(tag))
+                    if lemma not in self.stop_words and len(lemma) > 2:
                         entities.add(lemma)
         return entities
