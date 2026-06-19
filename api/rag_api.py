@@ -10,14 +10,14 @@ Google Gemini to generate a grounded natural-language answer with citations.
 Pipeline:  query --> [Search service] --> top-k docs --> build context prompt
            --> [Gemini] --> grounded answer + sources
 """
+
 import os
 import sqlite3
 
+import google.generativeai as genai
 import requests
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-
-import google.generativeai as genai
 
 from config import API_PORTS, DB_CONFIG, GEMINI_MODEL_NAME
 
@@ -27,6 +27,9 @@ SEARCH_API_URL = f"http://127.0.0.1:{API_PORTS['SEARCH']}/search/"
 _API_KEY = os.environ.get("GEMINI_API_KEY")
 if _API_KEY:
     genai.configure(api_key=_API_KEY)
+else:
+    print("LOOLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
+    print(os.environ.get("GEMINI_API_KEY"))
 
 app = FastAPI(title="RAG Service (Retrieval-Augmented Generation)")
 

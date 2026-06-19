@@ -13,6 +13,7 @@ from config import API_PORTS, DB_CONFIG, RES_DIR
 DATA_LOADER_API_URL = f"http://127.0.0.1:{API_PORTS['DATA_LOADER']}"
 REPRESENTATION_API_URL = f"http://127.0.0.1:{API_PORTS['REPRESENTATION']}"
 SEARCH_API_URL = f"http://127.0.0.1:{API_PORTS['SEARCH']}"
+RAG_API_URL = f"http://127.0.0.1:{API_PORTS['RAG']}"
 
 
 class PotatoSafeIRApp(tk.Tk):
@@ -237,6 +238,18 @@ class PotatoSafeIRApp(tk.Tk):
             input_row, text="SEARCH", command=self.start_search_thread
         )
         self.btn_search.pack(side=tk.RIGHT, padx=5, ipady=4)
+
+        self.btn_rag = tk.Button(
+            input_row,
+            text="ASK (RAG)",
+            command=self.start_rag_thread,
+            bg=self.accent_green,
+            fg=self.fg_main,
+            font=("Segoe UI", 9, "bold"),
+            relief="flat",
+            padx=15,
+        )
+        self.btn_rag.pack(side=tk.RIGHT, padx=5, ipady=4)
 
         features_frame = ttk.Frame(query_frame)
         features_frame.pack(fill=tk.X, pady=2)
@@ -776,6 +789,160 @@ class PotatoSafeIRApp(tk.Tk):
             )
         except Exception as e:
             self.after(0, self.finalize_ui_state, f"Failure: {str(e)}", [], True)
+
+    def start_rag_thread(self):
+        self.suggestion_box.place_forget()
+        query = self.query_var.get().strip()
+        if not query:
+            return
+        self.btn_rag.config(state=tk.DISABLED)
+        self.btn_search.config(state=tk.DISABLED)
+        self.status_label.config(
+            text="Generating answer using RAG pipeline...", fg=self.accent_blue
+        )
+        threading.Thread(target=self.execute_rag, args=(query,), daemon=True).start()
+
+    def execute_rag(self, query):
+        payload = {
+            "dataset_name": self.dataset_var.get().split(" ")[0],
+            "query": query,
+            "model_type": self.model_var.get(),
+            "top_k": 5,
+        }
+        try:
+            # Hit the backend RAG service directly
+            response = requests.post(f"{RAG_API_URL}/rag/", json=payload, timeout=180)
+            if response.status_code != 200:
+                raise Exception(response.json().get("detail", "RAG Engine error"))
+
+            data = response.json()
+            self.after(0, self.show_rag_popup, query, data)
+        except Exception as e:
+            err_msg = str(e)  # Capture the string immediately
+            self.after(
+                0,
+                lambda: self.status_label.config(
+                    text=f"RAG Failure: {str(err_msg)}", fg="#ef4444"
+                ),
+            )
+        finally:
+            self.after(
+                0,
+                lambda: [
+                    self.btn_rag.config(state=tk.NORMAL),
+                    self.btn_search.config(state=tk.NORMAL),
+                ],
+            )
+
+    def show_rag_popup(self, query, data):
+        self.status_label.config(text="RAG Response Generated.", fg=self.accent_green)
+
+        # Parse data out of response payload
+        answer_text = data.get("answer", "No answer generated.")
+        sources = data.get("sources", [])
+
+        # Construct Popup Window Frame
+        popup = tk.Toplevel(self)
+        popup.title("RAG Generative Answer")
+        popup.geometry("700x650")
+        popup.configure(bg=self.bg_main)
+        popup.transient(self)
+        popup.grab_set()
+
+        main_container = ttk.Frame(popup, padding="15")
+        main_container.pack(fill=tk.BOTH, expand=True)
+
+        # Query Header Display
+        tk.Label(
+            main_container,
+            text=f'Query: "{query}"',
+            font=("Segoe UI", 11, "italic", "bold"),
+            bg=self.bg_main,
+            fg=self.fg_muted,
+            wraplength=650,
+            justify=tk.LEFT,
+        ).pack(anchor=tk.W, pady=(0, 10))
+
+        # Scrollable area container for answer + sources
+        canvas = tk.Canvas(main_container, bg=self.bg_main, highlightthickness=0)
+        scrollbar = ttk.Scrollbar(
+            main_container, orient="vertical", command=canvas.yview
+        )
+        scroll_frame = ttk.Frame(canvas)
+
+        scroll_frame.bind(
+            "<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+        canvas.bind(
+            "<Configure>",
+            lambda e: canvas.itemconfig(canvas.find_withtag("all")[0], width=e.width),
+        )
+
+        # --- Answer Box Element (Styled dark green border/background like web component) ---
+        answer_box = ttk.Frame(scroll_frame, padding="12")
+        answer_box.pack(fill=tk.X, pady=(0, 15))
+
+        # Inject custom styles for RAG frame container dynamically
+        self.style.configure("RagAnswer.TFrame", background="#10231d")
+        answer_box.configure(style="RagAnswer.TFrame")
+
+        tk.Label(
+            answer_box,
+            text="💡 GENERATIVE ANSWER",
+            font=("Segoe UI", 11, "bold"),
+            bg="#10231d",
+            fg=self.accent_green,
+        ).pack(anchor=tk.W, pady=(0, 5))
+
+        tk.Message(
+            answer_box,
+            text=answer_text,
+            font=("Segoe UI", 11),
+            bg="#10231d",
+            fg="#d7efe7",
+            aspect=500,
+            justify=tk.RIGHT if self._contains_arabic(answer_text) else tk.LEFT,
+        ).pack(fill=tk.X)
+
+        # --- Retrieved Ground Truth Sources Elements ---
+        if sources:
+            tk.Label(
+                scroll_frame,
+                text="📋 Retrieved Context Sources:",
+                font=("Segoe UI", 10, "bold"),
+                bg=self.bg_main,
+                fg=self.accent_blue,
+            ).pack(anchor=tk.W, pady=(5, 5))
+
+            for s in sources:
+                if not s.get("text"):
+                    continue
+                card = ttk.Frame(scroll_frame, style="Card.TFrame", padding="10")
+                card.pack(fill=tk.X, pady=4)
+
+                tk.Label(
+                    card,
+                    text=f"Doc ID: {s.get('doc_id')}",
+                    font=("Segoe UI", 9, "bold"),
+                    bg=self.bg_card,
+                    fg="#60a5fa",
+                ).pack(anchor=tk.W)
+
+                src_text = s.get("text", "")
+                tk.Message(
+                    card,
+                    text=src_text,
+                    font=("Segoe UI", 9),
+                    bg=self.bg_card,
+                    fg="#cdd2dd",
+                    aspect=500,
+                    justify=tk.RIGHT if self._contains_arabic(src_text) else tk.LEFT,
+                ).pack(fill=tk.X, pady=4)
 
     def finalize_ui_state(self, status_msg, results, is_error=False):
         self.btn_search.config(state=tk.NORMAL)

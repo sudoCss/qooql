@@ -15,8 +15,14 @@ services/training:
 services/search:
 	@python -m uvicorn api.search_api:app --host 0.0.0.0 --port 8003
 
+services/rag:
+	@python -m uvicorn api.rag_api:app --host 0.0.0.0 --port 8004
+
 ui:
 	@python -m ui.app
+
+ui/web:
+	@python -m uvicorn ui_web.app:app --host 0.0.0.0 --port 8000
 
 testing:
 	@python -m testing.app

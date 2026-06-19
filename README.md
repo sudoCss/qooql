@@ -23,7 +23,7 @@ source .venv/bin/activate # THIS IS FOR LINUX
 ### 3. قم بتنزيل المكاتب اللازمة
 
 ```bash
-pip install numpy nltk fastapi ir_datasets "setuptools<82" joblib scikit-learn rank_bm25 sentence_transformers faiss-cpu tkinter requests fastapi uvicorn pydantic tqdm pandas
+pip install numpy nltk fastapi ir_datasets "setuptools<82" joblib scikit-learn rank_bm25 sentence_transformers faiss-cpu tkinter requests fastapi uvicorn pydantic tqdm pandas google-generativeai
 ```
 
 ### 4. قم بتهيئة قاعدة البيانات
