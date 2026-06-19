@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محرّك البحث — Information Retrieval System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{font-family:'Cairo',Segoe UI,sans-serif;margin:0;background:#0f1117;color:#e6e8ee;line-height:1.7;}
+  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 60px;}
+  header{text-align:center;padding:18px 0 22px;}
+  header h1{font-size:26px;font-weight:700;margin:0;color:#fff;}
+  header p{color:#9aa3b2;margin:6px 0 0;font-size:14px;}
+  .panel{background:#171a23;border:1px solid #262b38;border-radius:14px;padding:18px;margin-bottom:16px;}
+  .row{display:flex;flex-wrap:wrap;gap:12px;}
+  .field{display:flex;flex-direction:column;gap:5px;flex:1;min-width:150px;}
+  label{font-size:13px;color:#9aa3b2;font-weight:500;}
+  select,input[type=text],input[type=number]{background:#0f1117;border:1px solid #2d3342;color:#e6e8ee;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:14px;outline:none;}
+  select:focus,input:focus{border-color:#3b82f6;}
+  .params{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:12px;}
+  .params .field{min-width:90px;flex:0 0 auto;}
+  .chk{display:flex;align-items:center;gap:7px;color:#9aa3b2;font-size:13px;margin-top:18px;}
+  .qrow{display:flex;gap:10px;margin-top:14px;position:relative;}
+  .qrow input{flex:1;font-size:15px;padding:12px 14px;}
+  button{font-family:inherit;font-weight:700;border:0;border-radius:10px;padding:0 20px;cursor:pointer;font-size:14px;}
+  .btn-search{background:#3b82f6;color:#fff;}
+  .btn-rag{background:#10b981;color:#062b22;}
+  button:disabled{opacity:.5;cursor:default;}
+  #suggest{position:absolute;top:52px;right:0;left:120px;background:#1b1f2a;border:1px solid #2d3342;border-radius:10px;z-index:9;overflow:hidden;display:none;}
+  #suggest div{padding:8px 12px;cursor:pointer;font-size:14px;}
+  #suggest div:hover{background:#2a3142;}
+  #status{color:#9aa3b2;font-size:13px;min-height:20px;margin:4px 2px;}
+  .card{background:#171a23;border:1px solid #262b38;border-radius:12px;padding:14px 16px;margin-bottom:12px;}
+  .card .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:10px;}
+  .docid{color:#60a5fa;font-weight:700;font-size:13px;}
+  .score{background:#1e2636;color:#9ec1ff;border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;}
+  .card .tx{color:#cdd2dd;font-size:14px;white-space:pre-wrap;}
+  .answer{background:#10231d;border:1px solid #1f4d3f;border-radius:12px;padding:16px;margin-bottom:14px;}
+  .answer h3{margin:0 0 8px;color:#34d399;font-size:15px;}
+  .answer .tx{color:#d7efe7;font-size:15px;white-space:pre-wrap;}
+  .srctitle{color:#9aa3b2;font-size:13px;margin:6px 2px 10px;}
+  .hidden{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>محرّك البحث الذكي</h1>
+    <p>Information Retrieval System · بحث متعدّد النماذج + إجابة مولّدة (RAG)</p>
+  </header>
+
+  <div class="panel">
+    <div class="row">
+      <div class="field">
+        <label>مجموعة البيانات</label>
+        <select id="dataset">
+          <option value="cranfield">cranfield (1,400)</option>
+          <option value="beir/nfcorpus">beir/nfcorpus (3,633)</option>
+          <option value="beir/scifact">beir/scifact (5,183)</option>
+          <option value="vaswani">vaswani (11,429)</option>
+          <option value="beir/quora" selected>beir/quora (523,000)</option>
+          <option value="lotte/lifestyle/dev">lotte/lifestyle/dev (268,893)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>نموذج البحث</label>
+        <select id="model">
+          <option value="hybrid" selected>هجين تفرعي (Hybrid)</option>
+          <option value="hybrid_serial">هجين تسلسلي (Serial)</option>
+          <option value="bm25">BM25</option>
+          <option value="bert">BERT</option>
+          <option value="tfidf">TF-IDF</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="params" id="params">
+      <div class="field" id="f-k1"><label>BM25 k1</label><input type="number" id="k1" value="1.6" step="0.1" style="width:90px"></div>
+      <div class="field" id="f-b"><label>BM25 b</label><input type="number" id="b" value="0.75" step="0.05" style="width:90px"></div>
+      <div class="field" id="f-w"><label>وزن BM25 <span id="wv">0.80</span></label><input type="range" id="w" min="0" max="1" step="0.05" value="0.8"></div>
+      <label class="chk" id="f-faiss"><input type="checkbox" id="faiss" checked> تفعيل FAISS</label>
+    </div>
+
+    <div class="qrow">
+      <input type="text" id="q" placeholder="اكتب استعلامك هنا..." autocomplete="off">
+      <button class="btn-search" id="bs">بحث</button>
+      <button class="btn-rag" id="br">اسأل (RAG)</button>
+      <div id="suggest"></div>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <div id="results"></div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const datasetVal = () => $('dataset').value;
+
+function toggleParams(){
+  const m = $('model').value;
+  const showBM = ['bm25','hybrid','hybrid_serial'].includes(m);
+  $('f-k1').style.display = showBM ? '' : 'none';
+  $('f-b').style.display = showBM ? '' : 'none';
+  $('f-w').style.display = (m==='hybrid') ? '' : 'none';
+  $('f-faiss').style.display = (m==='hybrid'||m==='bert') ? 'flex' : 'none';
+}
+$('model').addEventListener('change', toggleParams);
+$('w').addEventListener('input', e => $('wv').textContent = (+e.target.value).toFixed(2));
+toggleParams();
+
+function isArabic(t){ return /[؀-ۿ]/.test(t||''); }
+function payload(){
+  return {
+    dataset_name: datasetVal(),
+    query: $('q').value.trim(),
+    model_type: $('model').value,
+    k1: parseFloat($('k1').value)||1.6,
+    b: parseFloat($('b').value)||0.75,
+    hybrid_bm25_weight: parseFloat($('w').value),
+    use_faiss: $('faiss').checked,
+    top_k: 10
+  };
+}
+
+let sugTimer=null;
+$('q').addEventListener('keyup', e => {
+  if(['ArrowUp','ArrowDown','Enter','Escape'].includes(e.key)) return;
+  clearTimeout(sugTimer);
+  const p = $('q').value.trim();
+  if(p.length<2){ $('suggest').style.display='none'; return; }
+  sugTimer = setTimeout(()=>fetchSuggest(p), 250);
+});
+async function fetchSuggest(prefix){
+  try{
+    const r = await fetch(`/api/suggest?dataset_name=${encodeURIComponent(datasetVal())}&prefix=${encodeURIComponent(prefix)}`);
+    const list = await r.json();
+    const box = $('suggest');
+    if(!list || !list.length){ box.style.display='none'; return; }
+    box.innerHTML = list.map(s=>`<div>${s}</div>`).join('');
+    box.querySelectorAll('div').forEach(d=>d.onclick=()=>{ $('q').value=d.textContent; box.style.display='none'; });
+    box.style.display='block';
+  }catch(_){ $('suggest').style.display='none'; }
+}
+$('q').addEventListener('keydown', e=>{ if(e.key==='Enter'){ $('suggest').style.display='none'; doSearch(); }});
+
+function setBusy(b, msg){ $('bs').disabled=b; $('br').disabled=b; $('status').textContent=msg||''; }
+
+async function doSearch(){
+  if(!$('q').value.trim()) return;
+  setBusy(true,'جاري البحث...');
+  $('results').innerHTML='';
+  try{
+    const r = await fetch('/api/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())});
+    if(!r.ok) throw new Error((await r.json()).detail||'خطأ بالخادم');
+    const data = await r.json();
+    const res = data.results||[];
+    setBusy(false, res.length?`تم — ${res.length} نتيجة`:'لا نتائج.');
+    $('results').innerHTML = res.map(x=>`
+      <div class="card">
+        <div class="hd"><span class="docid">Doc: ${x.doc_id}</span><span class="score">${(+x.score).toFixed(4)}</span></div>
+        <div class="tx" style="direction:${isArabic(x.text)?'rtl':'ltr'}">${(x.text||'').replace(/</g,'&lt;')}</div>
+      </div>`).join('');
+  }catch(err){ setBusy(false,'فشل: '+err.message); }
+}
+
+async function doRag(){
+  if(!$('q').value.trim()) return;
+  setBusy(true,'جاري توليد الإجابة (RAG)...');
+  $('results').innerHTML='';
+  try{
+    const body = {dataset_name:datasetVal(), query:$('q').value.trim(), model_type:$('model').value, top_k:5};
+    const r = await fetch('/api/rag',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(!r.ok) throw new Error((await r.json()).detail||'خطأ بالخادم');
+    const data = await r.json();
+    setBusy(false,'تمّت الإجابة.');
+    const srcs = (data.sources||[]).filter(s=>s.text);
+    $('results').innerHTML = `
+      <div class="answer"><h3>الإجابة المولّدة</h3><div class="tx" style="direction:${isArabic(data.answer)?'rtl':'ltr'}">${(data.answer||'').replace(/</g,'&lt;')}</div></div>
+      <div class="srctitle">المصادر المسترجَعة:</div>
+      ${srcs.map(s=>`<div class="card"><div class="hd"><span class="docid">Doc: ${s.doc_id}</span></div><div class="tx" style="direction:${isArabic(s.text)?'rtl':'ltr'}">${(s.text||'').replace(/</g,'&lt;')}</div></div>`).join('')}`;
+  }catch(err){ setBusy(false,'فشل: '+err.message); }
+}
+
+$('bs').onclick = doSearch;
+$('br').onclick = doRag;
+</script>
+</body>
+</html>

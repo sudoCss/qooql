@@ -8,4 +8,9 @@ DB_CONFIG = {"database": os.path.join(BASE_DIR, "ir_system.db")}
 
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 
-API_PORTS = {"DATA_LOADER": 8001, "REPRESENTATION": 8002, "SEARCH": 8003}
+# RAG (Retrieval-Augmented Generation) via Google Gemini.
+# The API key is read from the environment variable GEMINI_API_KEY (never hard-code a key).
+# GEMINI_MODEL_NAME can be overridden if a different free model is preferred.
+GEMINI_MODEL_NAME = os.environ.get("GEMINI_MODEL_NAME", "gemini-1.5-flash")
+
+API_PORTS = {"DATA_LOADER": 8001, "REPRESENTATION": 8002, "SEARCH": 8003, "RAG": 8004}
